@@ -5,28 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="./js/vue.js"></script>
+    
 </head>
 <body>
     <div id="root">
-       xing: <input type="text" :value="xing"> <br/><br/>
-       ming: <input type="text :value='ming'> <br/><br/>
-       xingming: <span>??</span>
+     
     </div>
-    <script type="text/javascript>
-           Vue.config.productionTip = false
-        new Vue({
-            el: '#root',
-            data: {
-                xing:'张',
-                ming:'三',
+    <script>
+        function Fn(uname,age) {
+            this.uname=uname,
+            this.age=age
+            // this.sing=function() {
+            //     console.log('changge')
+            // }
+
+
+
+        }
+
+
+        // Fn.prototype.sing=function() {
+        //     console.log('changeg1')
+        // }
+
+
+        // 如果有多个共享方法   要以这种形式  不要忘记 手动利用constructor指回原来的构造函数  Fn
+
+        Fn.prototype = {
+
+            constructor: Fn,
+            sing: function() {
+                console.log('aaaaaa');
+                
             },
-            methods: {
 
-            }
-        })
-        
+            dance: function() {
+                console.log('bbbbbbb');
 
+            },
+        }
+
+
+        //对象ldh和ZXY的方法全等为false  证明两者虽然值相同 但是地址不同 也就是地址引用不同  所以把方法写到构造函数当中  会分别为两个对象创建sing 函数/方法空间    如果有上百个对象甚至更多
+        //就会创建无数个函数空间浪费内存  我们利用 每个构造函数身上都有的一个属性----prototype原型对象  可以将对象共享的方法sing 存进去
+var ldh =new Fn('ldh',89)
+var zxy=new Fn('zxy',52)
+
+
+
+
+// console.log(ldh.sing===zxy.sing)    false
+
+
+console.log(ldh)
+console.log(zxy)
+console.log(Fn.prototype)
+// console.log(ldh.sing===zxy.sing)   通过构造函数.prototype.方法名=function() {}    就将共享方法存到一个共用地址上  即  Fn.prototype  所以调用时两者的访问地址相同  全等  
+
+
+// console.log(ldh.dance())
+
+console.log(Fn.prototype===ldh.__proto__)
+
+console.log(ldh.__proto__)
+// 只要是对象/实例 就会有__proto__属性/原型   指向原型对象
+//Fn.prototype 是一个原型对象   也是一个对象  只要是对象  就会有一个__proto__这个属性/原型     原型指向原型对象  
+       console.log(Fn.prototype.__proto__===Object.prototype)//构造函数.prototype.__proto__指向Object.prototype
+       console.log(Object.prototype.__proto__)//null
     </script>
+   
 </body>
 </html>
