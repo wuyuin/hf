@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <style>
+       /*  .demo1 {
+            width: 200px;
+            height: 350px;
+            background-color: aquamarine;
+
+        } */
+        * {
+        /*     margin-top: 20px;
+        } */
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h2>欢迎来到{{name}}</h2>
+        <!-- <button v-on:click="show">点我提示信息</button> -->
+        <button @click="show">点我提示信息</button>
+        <button @click.once="show1(66,$event)">点我提示信息1</button>
+        <a href="http://www.baidu.com" @click.prevent='show3'>dianwo</a>
+
+        <input type="text" placeholder="请输入姓名" @keyup="'show5">
+    </div>
+<div class="demo1" @click='show4'>
+   
+    <h2 v-big="n">当前的n</h2>
+    <h2 v-text="n">{{n}}/h2>
+    <button @click="n++">点击</button>
+    
+</div>
+
+
+    <script type="text/javascript">
+     Vue.config.productionTip = false
+    const vm =  new Vue({
+         el: '#root',
+         data: {name:'huifayun',
+         },
+         methods: {
+             show(a,b,c) {
+                 /* console.log(a,b,c)
+                 console.log(this) //this就是Vue实例 */
+                 alert('jkjfk')
+             },
+            show1(number,a) {
+                alert('123456')
+                console.log(number,event)
+
+            },
+            show3(e) {
+                // e.preventDefault()   默认行为被阻止了  跳转 
+
+                alert('888888')
+            },
+            show5(e) {
+                console.log(e.target.value)
+            }
+
+         }
+     })
+
+     new Vue({
+         el: '.demo1',
+         data: {
+             n:1,
+         },
+         /* methods: {
+             show4() {
+                
+                 alert(999999)
+
+             }
+         } */
+     })
+     
+     
+
+        </script>
+</body>
+</html>

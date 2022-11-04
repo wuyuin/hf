@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+
+</head> 
+<body>
+    <div id="root">
+        <h1>{{msg}}</h1>
+        <hr/>
+        <school></school>
+
+        <!-- <my-school></my-school> -->
+    </div>
+   
+   
+</body>
+
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    // 创建组件
+const school ={
+    // name:'atguigu',
+    template:`
+    <div>
+        <h2> 学校名称：{{schoolName}}</h2>
+        <h2> 学校地址:{{address}}<h2/>
+        </div>
+
+    `,
+    data() {
+        return {
+            schoolName:'汇发集团',
+            address: '上海汇发'
+        }
+    }
+}
+// 注册组件
+new Vue({
+    el: '#root',
+    data: {
+        msg:'玉米玉米'
+    },
+    components: {
+        // 'my-school':school,
+        school
+    }
+    
+})
+
+
+
+
+
+
+    </script>
+</html>

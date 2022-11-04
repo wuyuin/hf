@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       xing: <input type="text" :value="xing"> <br/><br/>
+       ming: <input type="text :value='ming'> <br/><br/>
+       xingming: <span>??</span>
+    </div>
+    <script type="text/javascript>
+           Vue.config.productionTip = false
+        new Vue({
+            el: '#root',
+            data: {
+                xing:'张',
+                ming:'三',
+            },
+            methods: {
+
+            }
+        })
+        
+
+    </script>
+</body>
+</html>

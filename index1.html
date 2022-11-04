@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汇发云</title>
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" -->
+    <!-- <script type="text/javascript" src="./js/vue.js"></script> -->
+    <script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- <div id ="root">
+        <h1 >hello ,{{name}}, {{address}}</h1>
+        <!-- <a :href="url.toUpperCase()">点我</a> -->
+        <a :href="school.url.toUpperCase()">提交</a>
+
+        <h5>点我{{school.name}}</h5>
+
+
+   </div>
+ -->
+   <!-- <div class="root1">
+       <!-- <input type="text" v-bind:value="name"> -->
+       <div class="root1" @click="show5">
+        <!-- <input type="text" placeholder="请输入你的名字"  @keyup.enter="show5"> -->
+        <input type="text" placeholder="请输入你的名字"  @keyup.up="show5">
+       
+        <input type="text" placeholder="请输入你的名字"  @keydown.tab="show5">
+        <input type="text" placeholder="请输入你的名字"  @keydown.ctrl.y="show5">
+        <input type="text" placeholder="请输入你的名字"  @keyup.ctrl="show5">
+        <a href="http://www.baidu.com" @click.stop.prevent="show5">lianjia </a>
+       </div>
+       <input type="text" v-model="name">
+       
+
+   </div>
+ -->
+ <div id="root">
+     <h1>nihao{{name}}</h1>
+     <h5>{{_c}}</h5>
+ </div>
+
+ <div class="class2">
+     xing: <input type="text" v-model="xing"><br>
+     ming: <input type="text" v-model="ming"> <br>
+     xingming: <span>{{fullName}}</span>
+ </div>
+
+         <script type="text/javascript">
+             Vue.config.productionTip = false
+             /* new Vue({
+             el:'.root1',
+             data: {
+                 name:'汇发云'
+             } */
+        //  })
+       const v = new Vue({
+            el: '#root',
+           /*  data: {
+                name:'wuying',
+            } */
+            data() {
+                return{
+                    name:'yuyuyu'
+                    
+                }
+            }
+        })
+        console.log(v)
+        // v.$mount('#root')
+
+        new Vue({
+            el: '.root1',
+            data: {
+            },
+            methods: {
+                show5(e) {
+                    console.log(e.target.value)
+                    // alert('88888888888888')
+
+                }
+            }
+        })
+        
+        const vm = new Vue({
+            el: '.class2',
+            data: {
+                xing:'zhang',
+                ming:'san',
+            },
+            /* computed: {
+                fullName: {
+                    get() {
+                        //this 是 vm
+                        return this.xing + '-' + this.ming
+
+                    }, */
+            computed: {
+                fullName() {
+                return this.xing + '-' + this.ming
+
+            }
+
+            }        
+            
+                   /*  set(value) {
+                        const arr =value.split('-')
+                        this.xing=arr[0],
+                        this.ming=arr[1] */
+                        
+
+                    }
+                }
+            }
+
+            
+        })
+        
+
+
+
+         </script>
+         
+
+    </script>
+</body>
+</html>

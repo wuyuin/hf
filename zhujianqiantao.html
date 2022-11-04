@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+
+
+        
+       
+    </div>
+    
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    
+    const student= {
+    template:`
+    <div>
+        <h2>{{studentName}}</h2>
+        <h2>{{studentAge}}</h2>
+        </div>
+    `,
+
+    data() {
+        return {
+            studentName:'wuyuying',
+            studentAge:29
+        }
+    }
+}
+const school= {
+    template:`
+
+    <div>
+    <h2>{{schoolName}} </h2>
+    <h2>{{schooladd}} </h2>
+   
+        
+        
+        </div>
+    
+    `,
+    data() {
+        return {
+            schoolName:'爱奇艺',
+            schooladd:'上海'
+
+        }
+    },
+   
+}
+console.log(school)
+const app = {
+        template:`
+        <div>
+           
+            <school> </school>
+            <student> </student>
+
+           
+        </div>`,
+        components: {
+            school,
+            student,
+        }
+
+    }
+
+const vm =new Vue({
+    el: '#root',
+    template:`<app></app>`,
+   components: {
+      app
+       
+      
+   }
+})
+
+
+
+   </script>
+</html>

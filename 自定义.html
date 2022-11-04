@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>当前的n:<span v-text="n"></span></h2>
+        <h2>n放大10倍<span v-big-number="n"></span></h2>
+
+
+      <!--   <button @click="n++">点击</button>
+        <hr />
+        <input type="text" v-fbind:value="n">
+
+        <hr />
+        <button id="btn"> 点我创建一个输入框</button> -->
+    </div>
+    <div id="root2">
+        <input type="text" v-fbind:value="x">
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const div1 = document.querySelector('#root')
+        const btn = document.querySelector('#btn')
+        btn.addEventListener('click', function () {
+            const input = document.createElement('input')
+            div1.appendChild(input)
+
+        })
+
+
+
+Vue.directive('fbind',{bind(element,binding) {
+                        element.value=binding.value
+                    },
+                    inserted(element,binding) {
+                        
+                      element.focus()
+                    },
+                    update(element,binding) {
+                        element.value=binding.value
+                    }
+    
+})
+
+
+
+        new Vue({
+            el: '#root',
+            // 
+            
+            data: {
+                n: 3,
+            },
+            directives: {
+                'big-number'(element, binding) {
+                    console.log(element, binding)
+                    element.innerText = binding.value * 10
+
+
+
+                },
+                /* fbind(element,binding) {
+                    element.value=binding.value
+                    //  element.focus()
+
+
+                }
+ */
+                fbind: {
+                    //
+                    
+
+
+                }
+
+            }
+        })
+
+        new Vue({
+            el: '#root2',
+            data: {
+                x:2
+            },
+            beforeCreate() {
+                
+            },
+            created() {
+                
+            },
+
+
+        })
+        
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>你好{{Mm}}</h1>
+        <hr/>
+        <!-- <h2>今天天气很{{info}}</h2>
+        <button  @click='change'>切换天气</button>
+        <ul>
+            <li>这是第1个li</li>
+            <li>这是第2个li</li>
+            <li>这是第3个li</li>
+            <li>这是第4个li</li>
+            <li>这是第5个li</li>
+            <li>这是第6个li</li>
+            <li>这是第7个li</li>
+            <li>这是第8个li</li>
+            <li>这是第9个li</li>
+        </ul>
+        <div v-text="name"></div>
+        <div>年后，{{name}}</div>
+        <div v-text="str"></div>
+        <div v-html="str"></div>
+       <h2 >当前的 n 值是{{n}}</h2>
+       <h2 >{{n}}</h2>
+       <button @click="add">点我n+1</button> -->
+
+        <!-- <h2>学校名字：{{schoolName}}</h2>
+        <h2>学校地址：{{address}}</h2> -->
+
+
+        <school></school>
+        <hr />
+        <!-- <h2>学生名字：{{studentName}}</h2>
+        <h2>学生年龄：{{age}}</h2> -->
+        <student></student>
+        <student></student>
+
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        Vue.component('heelo',heelo)
+        // chuangj组件  组件的data必须是普通函数 
+        const heelo = Vue.extend({
+            template:`
+
+            `,
+            data() {
+                return {
+                    bb: 'aaaa'
+                }
+            }
+        }) 
+        const school = Vue.extend({
+            template:`
+            <div>
+                <h2>学校名字：{{schoolName}}
+                    
+                <h2>学校地址：{{address}}  
+
+                    <button @click='showName'>点我 </button>
+
+                </div>
+            `,
+            data() {
+              return {
+                  schoolName:'汇发云',
+                  address:'上海浦东'
+              }
+
+
+            },
+            methods: {
+                showName() {
+                    alert(this.schoolName)
+
+                }
+                
+            },
+
+
+        })
+
+
+        const student = Vue.extend({
+            template:`
+            <div>
+            <h2>学生名字：{{studentName}}
+               
+             <h2>学生年龄：{{age}} 
+                </div>
+
+            `,
+            data() {
+              return {
+                  studentName:'wuying',
+                  age:18
+              }
+
+
+            }
+
+
+        })
+
+
+const vm = new Vue({
+    el: '#root',
+    components: {
+        school,
+        student,
+    },
+    data: {
+        Mm:'阿达学生'
+    }
+
+})
+
+console.log(vm)
+
+
+
+
+
+        // 创建vm
+        // new Vue({
+        //     el: '#root',
+        //     data: {
+        //         // isHot:true,
+        //         // name:'huifayun',
+        //         // str:'<h3>呼呼呼呼</h3>',
+        //         // n:1
+        //         schoolName: '汇发云',
+        //         address: '上海杨浦',
+        //         studentName: 'wuying',
+        //         age: 20
+
+
+
+        //     },
+        //     methods: {
+
+        //     },
+        //     mounted() {
+
+        //     },
+        //     /*  computed: {
+        //          info() {
+        //              return this.isHot ? '炎热' : '凉爽'
+        //          }
+        //      },
+        //      methods: {
+        //          change() { this.isHot=!this.isHot
+ 
+        //          }
+                
+        //      }, */
+        // })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/vue.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="root">
+        <school></school>
+    <student></student>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const test = Vue.extend({
+        template: `
+   <div>
+    <h2>{{name}}</h2>
+    
+        
+        
+        </div>
+
+        `,
+        data() {
+            return {
+                name:'测试',
+
+            }
+        }
+    })
+
+
+       
+    const school = Vue.extend({
+        template: `
+   <div>
+    <h2>{{schoolName}}</h2>
+    <h2>{{schoolAdd}}</h2>
+    <test></test>
+        
+        
+        </div>
+
+        `,
+        data() {
+            return {
+                schoolName: '区块链',
+                schoolAdd: '上海'
+
+            }
+        },
+        components: {
+            test
+
+        }
+    })
+
+    console.log(school) //构造函数 首字母大写   是Vue.extend 写的 V
+
+    const student = Vue.extend({
+        template: `
+   <div>
+    <h2>{{studentName}}</h2>
+    <h2>{{studentAdd}}</h2>
+        
+        
+        </div>
+
+        `,
+        data() {
+            return {
+                studentName: 'wuyuying',
+                studentAdd: '新疆'
+
+            }
+        }
+    })
+
+
+    const vm =new Vue({
+        el: '#root',
+        components: {
+            school,student
+        }
+    })
+//定义一个构造函数
+
+    function Demo() {
+        this.a=1
+        this.b=5
+    }
+    //定义一个实例对象
+
+    const demo =new Demo()
+    console.log(Demo.prototype)// 函数     显示原型属性
+    console.log(demo.__proto__)//实例  隐式原型属性
+    console.log(Demo.prototype===demo.__proto__)
+    Demo.prototype.y=45
+    console.log(demo.__proto__.y)
+    console.log(demo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</html>

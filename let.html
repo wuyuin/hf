@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        let a;
+        /* let b='jdskfj'
+        let b='hjkdf' */
+      
+
+
+        const ZHAO = {
+            name:'yuyu',
+            xiaopin: function() {
+                console.log('lalllsllll')
+            }
+        }
+        let {name,xiaopin} =ZHAO
+        console.log(name)
+        console.log(xiaopin)
+        xiaopin()
+        let ax= 'iu'
+        let out =`${ax}是我最喜欢的人`
+        console.log(out)
+
+        let name1 ='kkkkk'
+        let chi = function() {
+            console.log('jgfkff ')
+        }
+
+
+
+
+        /* let fn1 =function() {
+            console.log('ryutyi')
+        } */
+
+
+        let fn1 = (a1,b1) => {
+            return a1+b1;
+
+        }
+        let fn2 = a3 => 
+         a3;
+        
+        let bb=fn2(50)
+       console.log(bb)
+       function date(...args) {
+           console.log(args)
+       }
+       date('baizhi','guii')
+
+
+       const boys =['hui','kui','jkk']
+       function chun() {
+           console.log(arguments)
+       }
+       chun(...boys)
+       const girls =['wei','yun','kkk']
+       /* const zhuhe =boys.concat(girls)
+       console.log(zhuhe) */
+       const zhuhe =[...boys ,...girls]
+       console.log(zhuhe)
+       const boyscopy = [...boys]
+       console.log(boyscopy)
+
+
+       /*  const school = {
+            name1,
+            chi,
+            improve() {
+                console.log(klllsl)
+            }
+        }
+        console.log(school) */
+
+
+        const banji = {
+            name:'yuyu',
+            student: [
+                'xiaoming',
+                'jujuju'
+            ],
+            [Symbol.iterator]() {
+                return {}
+            }
+        }
+       let set =new Set()
+      /*  set.add(78)
+       set.add(78) */
+       set.add([1,2,3])
+    //    set.delete(78)
+    console.log(set.has(78))
+    
+let setArr =[...set]
+console.log(setArr)
+let map =new Map()
+map.set('name','wuying')
+console.log(map.get('name'))
+
+// console.log(map.delete('name'))
+console.log(map)
+console.log(map.has('name'))
+function add() {
+    // console.log(arguments)
+   let arr =  Array.from(arguments)
+   console.log(arr)
+}
+add(1,2,3)
+console.log(Array.of(1,2,5,8))
+
+
+
+        const name4 = Symbol('name')
+        const name5 = Symbol('name')
+        console.log(name4===name5)
+console.log(name4)
+let asss=Symbol('sss')
+console.log(asss)
+
+
+        const divs =document.querySelectorAll('div')
+        const divArr =[...divs]
+        console.log(divArr)
+        console.log(divs)
+
+        const items =['as','iyi']
+        const ite =items[Symbol.iterator]()
+
+        console.log(ite.next())
+        console.log(ite.next())
+        console.log(ite.next())
+        function* fn(a3) {
+            yield a3;
+            yield 3;
+
+
+        }
+       const aa3 =   fn(2)
+       console.log(aa3)
+       console.log(aa3.next())
+       console.log(aa3.next())
+       console.log(aa3.next())
+
+       /* function* fn1(arg) {
+           yield 111;
+       }
+       let itea = fn1('aaa')
+       console.log(itea.next()) */
+
+       const p = new Promise(function(resolve,reject) {
+           setTimeout(function() {
+               resolve('用户数据')
+            // reject('数据失败')
+
+
+           },1000)
+
+       })
+      const res = p.then(function(value) {
+           console.log(value)
+        //    return 123;
+        return new Promise(function(resolve,reject) {
+            // resolve('ok')
+             reject('失败')
+           
+
+        })
+       },function(reason) {
+        //    console.warn(reason)
+        
+       })
+       console.log(res)
+
+
+
+
+    /* const p1 =new Promise((resolve,reject) => {
+        setTimeout(() => {
+            reject('error')
+
+
+        },1000)
+
+    })
+    p1.then(function(value) {
+
+
+    },function(reson) {
+        console.error(reson)
+
+    })
+    p1.catch(function(reson) {
+        console.error(reson)
+    })
+ */
+//类名大写    constructor 不用function  类中的函数都不用加function   函数与函数之间不加逗号 否则报错 
+
+
+    class Star {
+            constructor(uname,age) {
+                this.uname=uname;
+                this.age=age;
+
+
+            }
+           sing(s) {
+               console.log(s)
+           }
+        }
+
+       let ldh =  new Star('ldh',20)
+       console.log(ldh)
+      console.log(ldh.sing('lixianglan'))
+
+      class Father {
+          constructor() {
+
+          }
+          money() {
+              console.log('113232')
+          }
+      }
+      class Son extends Father {
+
+      }
+
+      var son =new Son()
+      console.log(son.money())
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    </script>
+</body>
+</html>
